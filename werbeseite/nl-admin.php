@@ -8,40 +8,48 @@ const GET_PARAM_SORT_TYPE = 'sortType';
 const GET_PARAM_SORTING = 'sorting';
 const GET_PARAM_SEARCH_NAME = 'search_name';
 
-// Funktion: Inhalte für Tabelle aus Datei einlesen!
-$filename = fopen("./daten/newsletter.csv","r");
-if(isset($_GET[GET_PARAM_SORTING])){// with sorting
-    while(!feof($filename)){
-        // insert csv line as element-array
-        if(($line=fgetcsv($filename))!== false){
-            $element = unserialize($line[0]);
-            // insert element into $newsletter array with key
-            // key = Name or key = Value
-            $key = $element[$_GET[GET_PARAM_SORT_TYPE]];
-            $newsletter["$key"] = $element;
-            // sorting $newsletter by key
-            ksort($newsletter);
-        }
-    }
-}else{// without sorting
-    while(!feof($filename)) {
+function csvLinesIntoArray($csvfile){
+    while(!feof($csvfile)) {
         // insert each csv line as element-array
-        if (($line = fgetcsv($filename)) !== false) {
+        if (($line = fgetcsv($csvfile)) !== false) {
             $element = unserialize($line[0]);
-            // insert element into $newsletter without sorting
-            $newsletter[] = $element;
+            // insert element into $newsletter
+            $result[] = $element;
         }
     }
+    return $result;
 }
+
+//Inhalte für Tabelle aus Datei zum $newsletter einlesen!
+$filename = fopen("./daten/newsletter.csv","r");
+$newsletter = csvLinesIntoArray($filename);
 /**
 var_dump($newsletter);
 echo "<br>";
 ksort($newsletter);
 var_dump($newsletter);
-*/
+ */
 fclose($filename);
 
-//Funktion: Suchen nach Name
+function sorting($datenhaltung, $sort_type){
+    // make the new array $result from $datenhaltung
+    // $result = ['key' => 'element'] compared to $datenhaltung = ['element']
+    foreach($datenhaltung as $element){
+        // key = Name or key = Value
+        $key = $element[$sort_type];
+        // insert element into $result array with key
+        $result["$key"] = $element;
+    }
+    // sorting $result by key
+    ksort($result);
+    return $result;
+}
+// Sorting by Name or Email
+if(isset($_GET[GET_PARAM_SORTING])){
+    $newsletter = sorting($newsletter, $_GET[GET_PARAM_SORT_TYPE]);
+}
+
+// suchen nach Name
 function suchenNachName($search_name, $datenhaltung){
     foreach($datenhaltung as $element){
         if(stripos($element["Name"],$search_name) !== false){
@@ -50,7 +58,7 @@ function suchenNachName($search_name, $datenhaltung){
     }
     return $search_result;
 }
-
+// Suchen nach Name
 if(isset($_GET[GET_PARAM_SEARCH_NAME])){
     $newsletter = suchenNachName($_GET[GET_PARAM_SEARCH_NAME], $newsletter);
 }
@@ -63,11 +71,13 @@ if(isset($_GET[GET_PARAM_SEARCH_NAME])){
         <title>Newsletter Verwaltung</title>
     </head>
     <body>
+    <!-- Search Filter-->
     <form method="get">
         <label for="search_name">Filter nach Name:</label>
         <input id="search_name" type="text" name="search_name" value="<?php echo $_GET[GET_PARAM_SEARCH_NAME]; ?>">
         <input type="submit" value="Suchen">
     </form>
+    <!-- End Of Search Filter-->
     <!--Table of Newsletter Anmelder-->
     <?php if (count($newsletter) > 0): ?>
         <table>
