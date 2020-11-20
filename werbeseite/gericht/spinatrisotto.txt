@@ -1,0 +1,1 @@
+a:7:{s:4:"name";s:62:"Spinatrisotto mit kleinen Samosateigecken und gemischter Salat";s:11:"description";s:85:"Die Süßkartoffeln werden vorsichtig aufgeschnitten und der Frischkäse eingefüllt.";s:12:"price_intern";d:2.9;s:12:"price_extern";d:5.3;s:9:"allergens";a:2:{i:0;i:11;i:1;i:13;}s:6:"amount";i:42;s:4:"bild";s:21:"spinatrisottoBild.jpg";}

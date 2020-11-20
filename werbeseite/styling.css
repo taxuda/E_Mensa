@@ -1,0 +1,102 @@
+.starter-template {
+    padding: 3rem 1.5rem;
+    text-align: left;
+}
+
+
+footer {
+    border-top: 1px solid black;
+    text-align: center;
+    padding-top: 15px;
+}
+
+footer > ul li{
+    display:inline;
+    padding: 0.5em 1em;
+    border-right: 2px solid lightgray;
+    margin: 0;
+    line-height: 0.8em;
+}
+
+footer > ul li:last-child {
+    border-right: none;
+}
+footer a {
+    color: #40E0D0;
+}
+
+.grid-container {
+    display: grid;
+    padding-top: 30px;
+    grid-template-columns: 20% auto 20%;
+    gap: 10px;
+    grid-template-areas:
+            "r1 r2 ."
+            "r3 r3 r3"
+            ". r4 .";
+}
+.r1 { margin-left: 10px; grid-area: r1; text-decoration: underline; border: 1px solid black;}
+.r2 { grid-area: r2; text-decoration: underline; border: 1px solid black;}
+.r3 { grid-area: r3; border-top: 1px solid black; }
+.r4 { grid-area: r4; padding-top: 200px; }
+
+h2 {
+    margin-top: 50px;
+}
+
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+
+    .t1 {
+        border: 1px solid black;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    table {
+        border-collapse: collapse;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+    }
+
+    tr:first-child {border: 2px solid black;}
+    tr:last-child {border: 2px solid black;}
+
+
+    .preis {
+        line-height: 50px;
+        height: 50px;
+        text-align: center;
+    }
+
+
+    .grid-container1 {
+        display: grid;
+        padding-top: 30px;
+        grid-template-columns: 20% auto 20%;
+        gap: 10px;
+        text-align: center;
+        grid-template-areas:
+            "a b c";
+    }
+    .grid-a { grid-area: a; }
+    .grid-b { grid-area: b; }
+    .grid-c { grid-area: c; }
+
+    .center-ul { margin-left: 25%; margin-right: 25%; }
+
+    .formular_flex { display: flex; }
+    .formular_flex > * { margin: 5px; } }
