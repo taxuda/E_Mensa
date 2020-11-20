@@ -42,7 +42,18 @@ var_dump($newsletter);
 fclose($filename);
 
 //Funktion: Suchen nach Name
+function suchenNachName($search_name, $datenhaltung){
+    foreach($datenhaltung as $element){
+        if(stripos($element["Name"],$search_name) !== false){
+            $search_result[] = $element;
+        }
+    }
+    return $search_result;
+}
 
+if(isset($_GET[GET_PARAM_SEARCH_NAME])){
+    $newsletter = suchenNachName($_GET[GET_PARAM_SEARCH_NAME], $newsletter);
+}
 ?>
 
 <!DOCTYPE html>
