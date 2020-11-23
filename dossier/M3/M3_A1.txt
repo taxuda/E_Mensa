@@ -1,0 +1,38 @@
+func_filesystem_fgetcsv.asp
+function.fgetcsv.php
+
+Cau truc dong csv: end of line? End of file?
+auto_detect_line_endings
+// Van de trong việc doc tung dong tu file csv
+
+($line = fgetcsv($file)) !== false
+$line = fgetcsv($file) !== false
+
+fgetcsv()  mỗi dòng bao gồm các trường, được ngăn cách bởi dấu phẩy
+ví dụ: 
+a, b, c, d
+M, l, n, q
+fgetcsv(): trả về MỘT_DÒNG[a, b, c, d] như là một array với các trường là phần tử
+// Đường dẫn tương tối, đường dẫn tuyệt đối
+https://freetuts.net/glossary/duong-dan-tuong-doi-va-duong-dan-tuyet-doi-trong-php-1.html
+
+<h2 id="Zahlen">E-Mensa in Zahlen</h2>
+<div class="grid-container1">
+    <div class="grid-a"><h3><?php
+            $filename ='./daten/pageload.csv';
+            countPageLoad($filename);
+            fclose($filename);
+            ?> </h3></div>
+    <div class="grid-b"><h3><?php
+            $filename = fopen("./daten/newsletter.csv","r");
+            countLineCsv($filename);
+            echo " Anmeldungen Zum Newsletter";
+            fclose($filename);
+            ?> </h3></div>
+    <div class="grid-c"><h3><?php
+            $filename = fopen("./daten/gerichte.csv","r");
+            countLineCsv($filename);
+            echo " Speisen";
+            fclose($filename);
+            ?></h3></div>
+</div>

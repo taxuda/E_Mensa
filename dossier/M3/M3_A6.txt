@@ -1,0 +1,5 @@
+	mysqli_connect: problem use 127.0.0.1 instead of localhost 
+Something about unix domain socket and tcp/ip connection 
+mysqli.quickstart.connections.php
+https://stackoverflow.com/questions/1676688/mysql-connection-not-working-2002-no-such-file-or-directory
+https://unix.stackexchange.com/questions/432976/failed-to-connect-to-mysql-no-such-file-or-directory/432986
