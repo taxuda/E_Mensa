@@ -11,6 +11,7 @@ if (!$link) {
     echo "Verbindung fehlgeschlagen: ", mysqli_connect_error();
     exit();
 }
+// Daten von Gerichte für Tabelle
 $sql = "select g.name as Gericht, g.preis_intern as 'Preis Intern', g.preis_extern as 'Preis Extern', group_concat(' ', gha.code) as Allergen 
 from gericht g join gericht_hat_allergen gha on g.id = gha.gericht_id group by g.name order by g.name asc limit 5";
 
@@ -24,6 +25,21 @@ while ($row = mysqli_fetch_assoc($result)) {
     $table[] = $row;
 }
 
+mysqli_free_result($result);
+
+// Daten der verwendeten Allergene
+$sql = "select CONCAT(a.name, ': ' , a.code) from gericht g
+    join gericht_hat_allergen gha on g.id = gha.gericht_id
+    join allergen a on gha.code = a.code where g.name is not null group by a.name;";
+$result = mysqli_query($link, $sql);
+if (!$result) {
+    echo "Fehler während der Abfrage:  ", mysqli_error($link);
+    exit();
+}
+
+while ($row = mysqli_fetch_assoc($result)) {
+    $allergene[] = $row;
+}
 mysqli_free_result($result);
 mysqli_close($link);
 ?>
@@ -50,5 +66,17 @@ mysqli_close($link);
         </tbody>
     </table>
 <?php endif; ?>
+
+    <!-- die Liste der verwendeten Allergene -->
+    <div class = "allergen_legende">
+        <h2> Allergen Legende</h2>
+        <ul class ="text-muted">
+            <?php foreach($allergene as $row):?>
+                <li><?php
+                    echo implode('</li><li>',$row);
+                ?></li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
 </body>
 </html>

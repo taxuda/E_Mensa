@@ -107,13 +107,15 @@ if($_POST[GET_PARAM_SUBMIT]){ //Submitted: Es gibt jetzt die Daten, die verarbei
 
             <h2 id="Speisen">Köstlichkeiten, die Sie erwarten</h2>
             <!-- Table der Gerichten -->
+            <!-- List of Allergen -->
             <?php include './gericht/gerichtAusDB.php'; ?>
-            <!-- End of table -->
+
             <!-- Platzhalter für Zahlen -->
             <?php include './count/count.php';?>
+
             <!-- Newsletterform -->
             <?php include './newsletter/newsletter.php' ?>
-            <!-- End of Newsletterform -->
+
 
             <h2 id="Wichtig">Das ist uns wichtig</h2>
             <ul class="center-ul">

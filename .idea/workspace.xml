@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -20,14 +23,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f76fd5a5-f3b1-4cd3-b633-e3df3d0fb6ba" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/beispiele/M3/m3_8a_testdatenbank.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/werbeseite/gericht/gerichtAusDB.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/werbeseite/daten.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/werbeseite/daten/pageload.csv" beforeDir="false" afterPath="$PROJECT_DIR$/werbeseite/daten/pageload.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/werbeseite/gericht/rindfleisch.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/werbeseite/gericht/spinatrisotto.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/werbeseite/gericht/suesskartoffeltaschen.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/werbeseite/gericht/gerichtAusDB.php" beforeDir="false" afterPath="$PROJECT_DIR$/werbeseite/gericht/gerichtAusDB.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/werbeseite/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/werbeseite/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,7 +50,7 @@
     <property name="DatabaseDriversLRU" value="mariadb" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/beispiele/M3" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/werbeseite/datenbank" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -71,6 +69,7 @@
       <recent name="$PROJECT_DIR$/beispiele" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/werbeseite/datenbank" />
       <recent name="$PROJECT_DIR$/beispiele/M3" />
       <recent name="$PROJECT_DIR$/werbeseite/count" />
     </key>
@@ -102,7 +101,7 @@
       <workItem from="1605818188123" duration="492000" />
       <workItem from="1605834529131" duration="1234000" />
       <workItem from="1605866191548" duration="22771000" />
-      <workItem from="1605961093261" duration="22343000" />
+      <workItem from="1605961093261" duration="24807000" />
     </task>
     <servers />
   </component>
@@ -130,30 +129,38 @@
     </state>
     <state x="567" y="121" width="1071" height="779" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.280.1280.800/0.0.1920.1080@0.0.1920.1080" timestamp="1606089508530" />
     <state x="317" y="213" width="1071" height="738" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.303.1280.777/0.23.1920.1057@0.23.1920.1057" timestamp="1606090684851" />
-    <state width="1143" height="281" key="GridCell.Tab.0.bottom" timestamp="1606140765661">
+    <state width="1143" height="281" key="GridCell.Tab.0.bottom" timestamp="1606143424235">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state width="1017" height="296" key="GridCell.Tab.0.bottom/1920.280.1280.800/0.0.1920.1080@0.0.1920.1080" timestamp="1606089422782" />
-    <state width="1143" height="281" key="GridCell.Tab.0.bottom/1920.303.1280.777/0.23.1920.1057@0.23.1920.1057" timestamp="1606140765661" />
-    <state width="1143" height="281" key="GridCell.Tab.0.center" timestamp="1606140765660">
+    <state width="1143" height="281" key="GridCell.Tab.0.bottom/1920.303.1280.777/0.23.1920.1057@0.23.1920.1057" timestamp="1606143424235" />
+    <state width="1143" height="281" key="GridCell.Tab.0.center" timestamp="1606143424235">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state width="1017" height="296" key="GridCell.Tab.0.center/1920.280.1280.800/0.0.1920.1080@0.0.1920.1080" timestamp="1606089422778" />
-    <state width="1143" height="281" key="GridCell.Tab.0.center/1920.303.1280.777/0.23.1920.1057@0.23.1920.1057" timestamp="1606140765660" />
-    <state width="1143" height="281" key="GridCell.Tab.0.left" timestamp="1606140765659">
+    <state width="1143" height="281" key="GridCell.Tab.0.center/1920.303.1280.777/0.23.1920.1057@0.23.1920.1057" timestamp="1606143424235" />
+    <state width="1143" height="281" key="GridCell.Tab.0.left" timestamp="1606143424234">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state width="1017" height="296" key="GridCell.Tab.0.left/1920.280.1280.800/0.0.1920.1080@0.0.1920.1080" timestamp="1606089422776" />
-    <state width="1143" height="281" key="GridCell.Tab.0.left/1920.303.1280.777/0.23.1920.1057@0.23.1920.1057" timestamp="1606140765659" />
-    <state width="1143" height="281" key="GridCell.Tab.0.right" timestamp="1606140765660">
+    <state width="1143" height="281" key="GridCell.Tab.0.left/1920.303.1280.777/0.23.1920.1057@0.23.1920.1057" timestamp="1606143424234" />
+    <state width="1143" height="281" key="GridCell.Tab.0.right" timestamp="1606143424235">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state width="1017" height="296" key="GridCell.Tab.0.right/1920.280.1280.800/0.0.1920.1080@0.0.1920.1080" timestamp="1606089422779" />
-    <state width="1143" height="281" key="GridCell.Tab.0.right/1920.303.1280.777/0.23.1920.1057@0.23.1920.1057" timestamp="1606140765660" />
+    <state width="1143" height="281" key="GridCell.Tab.0.right/1920.303.1280.777/0.23.1920.1057@0.23.1920.1057" timestamp="1606143424235" />
     <state x="697" y="508" key="NewPhpFileDialog" timestamp="1606096289833">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state x="697" y="496" key="NewPhpFileDialog/1920.280.1280.800/0.0.1920.1080@0.0.1920.1080" timestamp="1606088091989" />
     <state x="697" y="508" key="NewPhpFileDialog/1920.303.1280.777/0.23.1920.1057@0.23.1920.1057" timestamp="1606096289833" />
+    <state x="702" y="476" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606143419882">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state x="702" y="476" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1920.303.1280.777/0.23.1920.1057@0.23.1920.1057" timestamp="1606143419882" />
+    <state x="561" y="262" width="670" height="676" key="search.everywhere.popup" timestamp="1606141771826">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state x="561" y="262" width="670" height="676" key="search.everywhere.popup/1920.303.1280.777/0.23.1920.1057@0.23.1920.1057" timestamp="1606141771826" />
   </component>
 </project>
