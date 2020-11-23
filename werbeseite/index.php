@@ -106,36 +106,14 @@ if($_POST[GET_PARAM_SUBMIT]){ //Submitted: Es gibt jetzt die Daten, die verarbei
                 "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
 
             <h2 id="Speisen">Köstlichkeiten, die Sie erwarten</h2>
-            <table>
-                <tr>
-                    <th></th>
-                    <th>Preis intern</th>
-                    <th>Preis extern</th>
-                    <th>Bild</th>
-                </tr>
-                <?php foreach($meals as $meal):?>
-                    <tr>
-                        <td><?php echo  $meal['name']; ?></td>
-                        <td class="preis"><?php echo  number_format($meal['price_intern'],2); ?></td>
-                        <td class="preis"><?php echo  number_format($meal['price_extern'],2); ?></td>
-                        <td class="bild"><img src="./img/<?php echo $meal['bild'] ?>" width="80" height="80" style="border:2px solid black"</td>
-
-                    </tr>
-                <?php endforeach; ?>
-                <tr>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                </tr>
-            </table>
-
-            <!--Platzhalter für Zahlen -->
+            <!-- Table der Gerichten -->
+            <?php include './gericht/gerichtAusDB.php'; ?>
+            <!-- End of table -->
+            <!-- Platzhalter für Zahlen -->
             <?php include './count/count.php';?>
-
-            <!--Newsletterform-->
+            <!-- Newsletterform -->
             <?php include './newsletter/newsletter.php' ?>
-            <!--End of Newsletterform-->
+            <!-- End of Newsletterform -->
 
             <h2 id="Wichtig">Das ist uns wichtig</h2>
             <ul class="center-ul">

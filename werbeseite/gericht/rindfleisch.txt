@@ -1,1 +1,0 @@
-a:7:{s:4:"name";s:71:"Rindfleisch mit Bambus, Kaiserschoten und rotem Paprika dazu Mie Nudeln";s:11:"description";s:12:"Sehr lecker!";s:12:"price_intern";d:3.5;s:12:"price_extern";d:6.2;s:9:"allergens";a:2:{i:0;i:11;i:1;i:13;}s:6:"amount";i:42;s:4:"bild";s:19:"rindfleischBild.jpg";}
