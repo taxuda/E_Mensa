@@ -34,11 +34,19 @@ fclose($filename);
 function sorting($datenhaltung, $sort_type){
     // make the new array $result from $datenhaltung
     // $result = ['key' => 'element'] compared to $datenhaltung = ['element']
+    $result = array();
+    $index = 1;
     foreach($datenhaltung as $element){
         // key = Name or key = Value
         $key = $element[$sort_type];
         // insert element into $result array with key
-        $result["$key"] = $element;
+        if(!array_key_exists($key,$result)){
+            $result["$key"] = $element;
+        }else{
+            $result["$key"."$index"] = $element;
+            $index ++;
+        }
+
     }
     // sorting $result by key
     ksort($result);

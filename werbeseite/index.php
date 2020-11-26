@@ -4,55 +4,6 @@
  * Sendar, Akcay, 3235196
  * Dat, Tran, 3255934
  */
-
-//Get meals;
-$text1 = file_get_contents("./gericht/suesskartoffeltaschen.txt");
-$suesskartoffeltaschen = unserialize($text1);
-$text2 = file_get_contents("./gericht/rindfleisch.txt");
-$rindfleisch = unserialize($text2);
-$text3 = file_get_contents("./gericht/spinatrisotto.txt");
-$spinatrisotto = unserialize($text3);
-//Set Array of meals;
-$meals = [$suesskartoffeltaschen, $rindfleisch, $spinatrisotto];
-
-const GET_PARAM_NAME = 'name';
-const GET_PARAM_EMAIL = 'email';
-const GET_PARAM_SPRACHE = 'languege';
-const GET_PARAM_SUBMIT = 'submitted';
-$fehler = false;
-//Vorverarbeitung und nehmen die Daten
-if($_POST[GET_PARAM_SUBMIT]){ //Submitted: Es gibt jetzt die Daten, die verarbeitet werden.
-    $name = trim($_POST[GET_PARAM_NAME]??NULL);
-    $email = $_POST[GET_PARAM_EMAIL];
-    $sprache = $_POST[GET_PARAM_SPRACHE];
-    //Eingabevalidierung
-
-    if(!$name){//Name nicht leer ist!
-        $fehler[] = "Name muss gesetzt sein!";
-    }
-    if (!filter_var($email,FILTER_VALIDATE_EMAIL)){//Email-Adrresse korrekt format ist!
-        $fehler[] = "Bitte gültig Emailformat eingeben!";
-    }
-    elseif (strpos($email, "rcpt.at")
-        ||strpos($email, "damnthespam.at")
-        ||strpos($email, "wegwerfmail.de")
-        ||strpos($email,"trashmail.")){
-        $fehler[] = "Bitte kein Spamemail eingeben!";
-    }
-    if($fehler){//Fehler gefunden.
-        $getFehler = true;
-    }
-    else{//Fehler nicht gefuden.
-        $getFehler = false;
-        //Speicherung
-        if(!$getFehler){
-            $line = [$name, $email, $sprache];
-            $daten = serialize($line)."\n";
-            file_put_contents('daten.csv',$daten, FILE_APPEND);
-            $sucessed = true;
-        }
-    }
-}
 ?>
 <!DOCTYPE html>
 <html lang="de">

@@ -20,3 +20,6 @@ ksort() - sort associative arrays in ascending order, according to the key
 https://www.w3schools.com/php/php_arrays_sort.asp
 Formular zur Filter und Sortierung 
 https://www.w3schools.com/html/html_form_input_types.asp
+
+Xu ly Duplikate von Name und Email
+https://www.php.net/manual/en/function.array-key-exists.php
