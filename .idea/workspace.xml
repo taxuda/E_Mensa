@@ -24,8 +24,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f76fd5a5-f3b1-4cd3-b633-e3df3d0fb6ba" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/werbeseite/daten/pageload.csv" beforeDir="false" afterPath="$PROJECT_DIR$/werbeseite/daten/pageload.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/werbeseite/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/werbeseite/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +36,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.4.9" />
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP v7.4.13" />
   <component name="ProjectId" id="1k6LgnTgdFN9O9GQGkJrEKrs02P" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -49,7 +47,7 @@
     <property name="DatabaseDriversLRU" value="mariadb" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/dossier/M3" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/php-7.4.13-nts-Win32-vc15-x64/php.exe" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -75,7 +73,7 @@
       <recent name="$PROJECT_DIR$/beispiele" />
     </key>
   </component>
-  <component name="RunManager" selected="PHP Built-in Web Server.connection_example.php">
+  <component name="RunManager" selected="PHP Built-in Web Server.index.php">
     <configuration name="connection_example.php" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$/beispiele/M3/" port="9050">
       <method v="2" />
     </configuration>
@@ -107,6 +105,9 @@
       <workItem from="1606219902753" duration="3101000" />
       <workItem from="1606224082770" duration="1493000" />
       <workItem from="1606228659008" duration="619000" />
+      <workItem from="1606754885708" duration="2011000" />
+      <workItem from="1606756927399" duration="544000" />
+      <workItem from="1606757556964" duration="147000" />
     </task>
     <servers />
   </component>
@@ -126,33 +127,47 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="545" y="232" key="#PHP" timestamp="1605836023414">
-      <screen x="0" y="23" width="1920" height="1057" />
+    <state x="512" y="243" key="#CLI_Interpreters" timestamp="1606757703447">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="512" y="243" key="#CLI_Interpreters/0.0.1920.1040@0.0.1920.1040" timestamp="1606757703447" />
+    <state x="545" y="206" key="#PHP" timestamp="1606756229809">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="545" y="206" key="#PHP/0.0.1920.1040@0.0.1920.1040" timestamp="1606756229809" />
     <state x="545" y="232" key="#PHP/1920.303.1280.777/0.23.1920.1057@0.23.1920.1057" timestamp="1605836023414" />
-    <state x="317" y="213" width="1071" height="779" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606090684851">
-      <screen x="0" y="23" width="1920" height="1057" />
+    <state x="414" y="186" width="1071" height="805" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606756454423">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="414" y="186" width="1071" height="805" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606756454423" />
     <state x="567" y="121" width="1071" height="779" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.280.1280.800/0.0.1920.1080@0.0.1920.1080" timestamp="1606089508530" />
     <state x="317" y="213" width="1071" height="738" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.303.1280.777/0.23.1920.1057@0.23.1920.1057" timestamp="1606090684851" />
-    <state width="1008" height="40" key="GridCell.Tab.0.bottom" timestamp="1606228927280">
-      <screen x="0" y="23" width="1920" height="1057" />
+    <state x="586" y="311" key="FileChooserDialogImpl" timestamp="1606757698939">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="586" y="311" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1606757698939" />
+    <state width="1340" height="266" key="GridCell.Tab.0.bottom" timestamp="1606757474407">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1340" height="266" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1606757474407" />
     <state width="1017" height="296" key="GridCell.Tab.0.bottom/1920.280.1280.800/0.0.1920.1080@0.0.1920.1080" timestamp="1606089422782" />
     <state width="1008" height="40" key="GridCell.Tab.0.bottom/1920.303.1280.777/0.23.1920.1057@0.23.1920.1057" timestamp="1606228927280" />
-    <state width="1008" height="40" key="GridCell.Tab.0.center" timestamp="1606228927279">
-      <screen x="0" y="23" width="1920" height="1057" />
+    <state width="1340" height="266" key="GridCell.Tab.0.center" timestamp="1606757474407">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1340" height="266" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1606757474407" />
     <state width="1017" height="296" key="GridCell.Tab.0.center/1920.280.1280.800/0.0.1920.1080@0.0.1920.1080" timestamp="1606089422778" />
     <state width="1008" height="40" key="GridCell.Tab.0.center/1920.303.1280.777/0.23.1920.1057@0.23.1920.1057" timestamp="1606228927279" />
-    <state width="1008" height="40" key="GridCell.Tab.0.left" timestamp="1606228927279">
-      <screen x="0" y="23" width="1920" height="1057" />
+    <state width="1340" height="266" key="GridCell.Tab.0.left" timestamp="1606757474407">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1340" height="266" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1606757474406" />
     <state width="1017" height="296" key="GridCell.Tab.0.left/1920.280.1280.800/0.0.1920.1080@0.0.1920.1080" timestamp="1606089422776" />
     <state width="1008" height="40" key="GridCell.Tab.0.left/1920.303.1280.777/0.23.1920.1057@0.23.1920.1057" timestamp="1606228927279" />
-    <state width="1008" height="40" key="GridCell.Tab.0.right" timestamp="1606228927280">
-      <screen x="0" y="23" width="1920" height="1057" />
+    <state width="1340" height="266" key="GridCell.Tab.0.right" timestamp="1606757474407">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1340" height="266" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1606757474407" />
     <state width="1017" height="296" key="GridCell.Tab.0.right/1920.280.1280.800/0.0.1920.1080@0.0.1920.1080" timestamp="1606089422779" />
     <state width="1008" height="40" key="GridCell.Tab.0.right/1920.303.1280.777/0.23.1920.1057@0.23.1920.1057" timestamp="1606228927280" />
     <state x="697" y="508" key="NewPhpFileDialog" timestamp="1606096289833">
@@ -160,6 +175,10 @@
     </state>
     <state x="697" y="496" key="NewPhpFileDialog/1920.280.1280.800/0.0.1920.1080@0.0.1920.1080" timestamp="1606088091989" />
     <state x="697" y="508" key="NewPhpFileDialog/1920.303.1280.777/0.23.1920.1057@0.23.1920.1057" timestamp="1606096289833" />
+    <state x="461" y="165" key="SettingsEditor" timestamp="1606757704547">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1606757704547" />
     <state x="837" y="432" width="218" height="263" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1606221445182">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
