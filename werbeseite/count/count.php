@@ -9,7 +9,7 @@ function countPageLoad($pageLoaded){
     }
     $line = serialize($countPageLoad)."\n";
     file_put_contents('./daten/pageload.csv',$line);
-    echo $countPageLoad;
+    echo "$countPageLoad";
 }
 //counting numbers of line in a file.csv
 function countLineCsv($Csvfile){
@@ -51,6 +51,7 @@ fclose($file);
         <div class="grid-a"><h3><?php
                 $filename ='./daten/pageload.csv';
                 countPageLoad($filename);
+                echo " Besuche";
                 fclose($filename);
                 ?> </h3></div>
         <div class="grid-b"><h3><?php
