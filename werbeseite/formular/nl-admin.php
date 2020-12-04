@@ -21,14 +21,8 @@ function csvLinesIntoArray($csvfile){
 }
 
 //Inhalte für Tabelle aus Datei zum $newsletter einlesen!
-$filename = fopen("./daten/newsletter.csv","r");
+$filename = fopen("../daten/newsletter.csv","r");
 $newsletter = csvLinesIntoArray($filename);
-/**
-var_dump($newsletter);
-echo "<br>";
-ksort($newsletter);
-var_dump($newsletter);
- */
 fclose($filename);
 
 function sorting($datenhaltung, $sort_type){
@@ -46,16 +40,27 @@ function sorting($datenhaltung, $sort_type){
             $result["$key"."$index"] = $element;
             $index ++;
         }
-
     }
     // sorting $result by key
     ksort($result);
     return $result;
 }
 // Sorting by Name or Email
+// WHITELISTS OF SORT TYPE
+const ALLOWED_SORT_TYPE = ['Name', 'Email'];
+$sort = 'Name';
+$selected_sort_typ = $_GET[GET_PARAM_SORT_TYPE] ?? null;
+if( ($pos = array_search($selected_sort_typ, ALLOWED_SORT_TYPE))
+    !== false){
+    $sort = ALLOWED_SORT_TYPE[$pos];
+    $newsletter = sorting($newsletter, $sort);
+}
+// XSS-Schwachstelle: old sorting code
+/*
 if(isset($_GET[GET_PARAM_SORTING])){
     $newsletter = sorting($newsletter, $_GET[GET_PARAM_SORT_TYPE]);
 }
+*/
 
 // suchen nach Name
 function suchenNachName($search_name, $datenhaltung){
@@ -67,9 +72,27 @@ function suchenNachName($search_name, $datenhaltung){
     return $search_result;
 }
 // Suchen nach Name
+// PREPROCESSING AND VALIDATION OF SEARCHED NAME
+include './input_preprocessing_validation.php';
+const LENGTH_NAME = 80;
+$search_name = $search_name_ERR = '';
+if(empty($_GET[GET_PARAM_SEARCH_NAME])){
+    $search_name_ERR = true;
+}else{
+    $search_name = test_input($_GET[GET_PARAM_SEARCH_NAME] ?? null);
+    $search_name = test_input($search_name); // -> PROBLEM TEST INPUT WITH GET-METHOD
+    // check if name only contains letters and whitespace and valid length
+    $search_name_ERR = validName($search_name,LENGTH_NAME);
+}
+if($search_name && !($search_name_ERR)){ // if $search_name is set and no errors found search name
+    $newsletter = suchenNachName($search_name, $newsletter);
+}
+// XSS-Schwachstelle: old search name
+/*
 if(isset($_GET[GET_PARAM_SEARCH_NAME])){
     $newsletter = suchenNachName($_GET[GET_PARAM_SEARCH_NAME], $newsletter);
 }
+*/
 ?>
 
 <!DOCTYPE html>
@@ -82,7 +105,8 @@ if(isset($_GET[GET_PARAM_SEARCH_NAME])){
     <!-- Search Filter-->
     <form method="get">
         <label for="search_name">Filter nach Name:</label>
-        <input id="search_name" type="text" name="search_name" value="<?php echo $_GET[GET_PARAM_SEARCH_NAME]; ?>">
+        <input id="search_name" type="text" name="search_name"
+               value="<?php echo htmlspecialchars(isset($search_name)?$search_name:''); ?>">
         <input type="submit" value="Suchen">
     </form>
     <!-- End Of Search Filter-->
@@ -97,8 +121,16 @@ if(isset($_GET[GET_PARAM_SEARCH_NAME])){
             <tbody>
             <?php foreach ($newsletter as $row): array_map('htmlentities', $row); ?>
                 <tr>
-                    <td><?php echo implode('</td><td>', $row); ?></td>
+                    <?php foreach ($row as $element){
+                        echo "<td>",htmlspecialchars($element),"</td>";
+                    }?>
+
+                    <!-- Output from server: XSS-Schwachstellen
+                    <td>
+                        <?php //echo implode('</td><td>', $row); ?>
+                    </td> -->
                 </tr>
+
             <?php endforeach; ?>
             </tbody>
         </table>

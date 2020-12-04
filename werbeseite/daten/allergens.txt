@@ -1,1 +1,0 @@
-a:5:{i:11;s:6:"Gluten";i:12;s:10:"Krebstiere";i:13;s:4:"Eier";i:14;s:5:"Fisch";i:17;s:5:"Milch";}

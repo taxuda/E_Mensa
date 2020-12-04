@@ -75,14 +75,6 @@ h2 {
     tr:first-child {border: 2px solid black;}
     tr:last-child {border: 2px solid black;}
 
-
-    .preis {
-        line-height: 50px;
-        height: 50px;
-        text-align: center;
-    }
-
-
     .grid-container1 {
         display: grid;
         padding-top: 30px;
@@ -100,3 +92,7 @@ h2 {
 
     .formular_flex { display: flex; }
     .formular_flex > * { margin: 5px; } }
+
+
+
+ 

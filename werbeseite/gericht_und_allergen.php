@@ -1,8 +1,8 @@
 <?php
 $link = mysqli_connect(
     "127.0.0.1",            // Host der Datenbank
-    "root",                 // Benutzername zur Anmeldung
-    "root",             // Passwort
+    "ich",                 // Benutzername zur Anmeldung
+    "kekw123",             // Passwort
     "emensawerbeseite", // Auswahl der Datenbanken (bzw. des Schemas)
 // optional port der Datenbank
 );
@@ -51,6 +51,7 @@ mysqli_close($link);
 </head>
 <body>
 <?php if (count($table) > 0): ?>
+    <div class="preis">
     <table>
         <thead>
         <tr>
@@ -60,23 +61,36 @@ mysqli_close($link);
         <tbody>
         <?php foreach ($table as $row): array_map('htmlentities', $row); ?>
             <tr>
-                <td><?php echo implode('</td><td class = "preis">', $row); ?></td>
+                <?php
+                echo "<td>",htmlspecialchars($row['Gericht']),"</td>";
+                echo "<td>",htmlspecialchars(str_replace(".", ",", sprintf("%.2f€", $row['Preis Intern']))),"</td>";
+                echo "<td>",htmlspecialchars(str_replace(".", ",", sprintf("%.2f€", $row['Preis Extern']))),"</td>";
+                echo "<td>",htmlspecialchars($row['Allergen']),"</td>";
+                ?>
+                <!-- XSS Schwachstelle: Output from server -> client
+                <td> <?php //echo implode('</td><td class = "preis">', $row); ?></td>
+                -->
             </tr>
         <?php endforeach; ?>
         </tbody>
     </table>
+    </div>
 <?php endif; ?>
 
-    <!-- die Liste der verwendeten Allergene -->
-    <div class = "allergen_legende">
-        <h2> Allergen Legende</h2>
-        <ul class ="text-muted">
-            <?php foreach($allergene as $row):?>
-                <li><?php
-                    echo implode('</li><li>',$row);
-                ?></li>
-            <?php endforeach; ?>
-        </ul>
-    </div>
+<!-- die Liste der verwendeten Allergene -->
+<div class = "allergen_legende">
+    <h2> Allergen Legende</h2>
+    <ul class ="text-muted">
+        <?php foreach($allergene as $row): array_map('htmlentities', $row);?>
+        <?php foreach($row as $element){
+            echo "<li>",htmlspecialchars($element),"</li>";
+            }?>
+        <!-- XSS Schwachstelle: Output from server -> client
+            <li><?php
+                // echo implode('</li><li>',$row);
+                ?></li> -->
+        <?php endforeach; ?>
+    </ul>
+</div>
 </body>
 </html>
