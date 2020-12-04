@@ -16,6 +16,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $nameErr = "Name is required";
     } else {
         $name = test_input($_POST[POST_PARAM_NAME] ?? null);
+        $name = test_input($name);
         // check if name only contains letters and whitespace and valid length
         $nameErr = validName($name, LENGTH_NAME);
     }
@@ -23,6 +24,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $emailErr = "Email is required";
     } else {
         $email = test_input($_POST[POST_PARAM_EMAIL] ?? null);
+        $email = test_input($email);
         // check if email in correct format, valid length and not predefined junk mails
         $emailErr = validMail($email, LENGTH_EMAIL);
     }

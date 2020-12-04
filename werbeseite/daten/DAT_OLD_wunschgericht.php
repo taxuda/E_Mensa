@@ -55,56 +55,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // Tien hanh xu ly du lieu hoac khon
 
 // In DB eintrage, insert into name, beschreibung, es_name, es_email
 if(($_SERVER["REQUEST_METHOD"] == "POST")&&!($nameErr||$beschreibungErr||$erstellerIn_emailErr||$erstellerIn_nameErr)){
-
-    $mysql_con = mysqli_connect("127.0.0.1","ich","kekw123","emensawerbeseite");
-    // BEGIN TRANSACTION
-    mysqli_begin_transaction($mysql_con);
+    $link = mysqli_connect(
+        "127.0.0.1",                // Host der Datenbank
+        "ich",                      // Benutzername zur Anmeldung
+        "kekw123",              // Passwort
+        "emensawerbeseite"      // Auswahl der Datenbanken (bzw. des Schemas)
+    );
+    if(!$link){
+        echo "Verbindung fehlgeschlagen: "; // ,mysqli_connect_error(); information disclosure
+        exit();
+    }
+    // ich versuche gerade, diese AKCAY_wunschgericht.php
+    // PREPARED STATEMENT
+    $sql = "INSERT INTO wunschgericht (name, beschreibung, erstellerIn_name, erstellerIn_email, erstellt_datum) 
+VALUES (?, ?, ?, ?, now())";
+    $statement = mysqli_stmt_init($link);
+    mysqli_stmt_prepare($statement, $sql);
 
     // INPUT-MASK
-    $name = mysqli_real_escape_string($mysql_con,$name);
-    $beschreibung = mysqli_real_escape_string($mysql_con,$beschreibung);
-    $erstellerIn_name = mysqli_real_escape_string($mysql_con,$erstellerIn_name);
-    $erstellerIn_email = mysqli_real_escape_string($mysql_con,$erstellerIn_email);
+    $name = mysqli_real_escape_string($link,$name);
+    $beschreibung = mysqli_real_escape_string($link,$beschreibung);
+    $erstellerIn_name = mysqli_real_escape_string($link,$erstellerIn_name);
+    $erstellerIn_email = mysqli_real_escape_string($link,$erstellerIn_email);
 
-    // PREPARED STATEMENT
-    $query = [
-        'wunsch_eintrag' => "INSERT INTO Wunschgerichte (name, beschreibung) VALUES ( ? , ? )",
-        'ersteller_eintrag' => "INSERT INTO Ersteller (name, email) VALUES ( ? , ? )",
-        'verfasst_eintrag' => "INSERT INTO verfasst(id_wunsch, id_ersteller, erstellt_am) VALUES ( ? , ? ,now())"
-    ];
-    if (!isset($erstellerIn_name)){
-        $query = array_replace($query,array('ersteller_eintrag' => "INSERT INTO Ersteller (email) VALUES ( ? )"));
-    }
+    // bind params into $statement
+    mysqli_stmt_bind_param($statement, 'ssss', $name, $beschreibung, $erstellerIn_name, $erstellerIn_email);
 
-    try {
-        //INSERT TO Wunschgericht
-        $stmt_wunsch = mysqli_prepare($mysql_con,$query['wunsch_eintrag']);
-        mysqli_stmt_bind_param($stmt_wunsch, 'ss', $name,$beschreibung);
-        mysqli_stmt_execute($stmt_wunsch);
+    // execute statement
+    mysqli_stmt_execute($statement);
 
-        //INSERT TO Ersteller
-        $stmt_ersteller = mysqli_prepare($mysql_con,$query['ersteller_eintrag']);
-        if (empty($erstellerIn_name)){
-            mysqli_stmt_bind_param($stmt_ersteller, 's', $erstellerIn_email);
-        }else{
-            mysqli_stmt_bind_param($stmt_ersteller, 'ss', $erstellerIn_name, $erstellerIn_email);
-        }
-        mysqli_stmt_execute($stmt_ersteller);
+    // affected rows
+    $num = mysqli_stmt_affected_rows($statement);
+    echo $num;
 
-        $query = array_replace($query,array('verfasst_eintrag' => "INSERT INTO verfasst(id_wunsch, id_ersteller, erstellt_am) VALUES ( $stmt_wunsch->insert_id , $stmt_ersteller->insert_id ,now())"));
-
-        //INSERT TO verfasst
-        $stmt = mysqli_prepare($mysql_con,$query['verfasst_eintrag']);
-        mysqli_stmt_execute($stmt);
-
-        // transaktion
-        mysqli_commit($mysql_con);
-
-    } catch (mysqli_sql_exception $exception) {
-        mysqli_rollback($mysql_con);
-
-        throw $exception;
-    }
+    // close statement and link
+    mysqli_stmt_close($statement);
+    mysqli_close($link);
 }
 ?>
 <!DOCTYPE html>

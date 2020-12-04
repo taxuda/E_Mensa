@@ -4,7 +4,7 @@
         <title>wunschgericht</title>
     </head>
     <body>
-        <form action="wunschgericht.php" method="post">
+        <form action="AKCAY_wunschgericht.php" method="post">
             <label for="wunschgericht_name">Name des Wunschgerichts:</label><br>
             <input type="text" required id="wunschgericht_name" name="wunschgericht_name" maxlength="100" /><br><br>
 
@@ -24,7 +24,8 @@
 
 <?php
 if (isset($_POST['submit'])){
-    $link=mysqli_connect("127.0.0.1", // Host der Datenbank
+    $link=mysqli_connect(
+            "127.0.0.1", // Host der Datenbank
         "ich",                 // Benutzername zur Anmeldung
         "kekw123",    // Passwort
         "emensawerbeseite"      // Auswahl der Datenbanken (bzw. des Schemas)
@@ -73,6 +74,7 @@ if (isset($_POST['submit'])){
         $stmt = mysqli_prepare($mysql_con,$query['verfasst_eintrag']);
         mysqli_stmt_execute($stmt);
 
+        // transaktion
         mysqli_commit($mysql_con);
 
     } catch (mysqli_sql_exception $exception) {

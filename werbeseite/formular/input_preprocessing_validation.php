@@ -1,7 +1,7 @@
 <?php
 // INPUT PREPROCESSING
 /**
- * there is problem htmlspecialchars doesn't work (nl-admin.php and wunschgericht.php)
+ * there is problem htmlspecialchars doesn't work (nl-admin.php and AKCAY_wunschgericht.php)
  * simple preprocessing input data
  * @param $data
  * @return string
